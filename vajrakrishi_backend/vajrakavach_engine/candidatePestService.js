@@ -15,15 +15,27 @@ function getCandidatePests(crop, stage) {
 
         return {
 
-            primaryConcern: "General Monitoring",
+             primaryConcern: "General Monitoring",
 
-            secondaryConcern: "",
+        secondaryConcern: "",
 
-            majorDisease: "",
+        majorDisease: "",
 
-            scoutingFocus: "",
+        scoutingFocus: "",
 
-            precaution: ""
+        precaution: "",
+
+        todayPriority: "General crop monitoring.",
+
+        recommendedActions: [],
+
+        reportMode: "EARLY_MONITORING",
+
+        showPestSection: true,
+
+        showDiseaseSection: true,
+
+        showScoutSection: true
         };
     }
 
@@ -31,13 +43,26 @@ function getCandidatePests(crop, stage) {
 
         primaryConcern: record.primaryPest,
 
-        secondaryConcern: record.secondaryPest,
+    secondaryConcern: record.secondaryPest,
 
-        majorDisease: record.majorDisease,
+    majorDisease: record.majorDisease,
 
-        scoutingFocus: record.scoutingFocus,
+    scoutingFocus: record.scoutingFocus,
 
-        precaution: record.precautions
+    precaution: record.precautions,
+
+    // New Advisory Fields
+    todayPriority: record.todayPriority,
+
+    recommendedActions: record.recommendedActions,
+
+    reportMode: record.reportMode,
+
+    showPestSection: record.showPestSection,
+
+    showDiseaseSection: record.showDiseaseSection,
+
+    showScoutSection: record.showScoutSection
     };
 }
 

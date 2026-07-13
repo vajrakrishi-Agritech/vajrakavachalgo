@@ -1,45 +1,64 @@
 function generateReport(data) {
+  console.log("===== REPORT DEBUG =====");
+  console.log(data.pests);
 
-    return {
+  let todayAction = "";
 
-        crop: data.crop,
+  if (data.pests.reportMode === "ESTABLISHMENT") {
+    todayAction = data.pests.todayPriority;
+  } else {
+    todayAction = `Inspect ${data.pests.primaryConcern} symptoms starting from the ${data.scout.startSide} side of the field.`;
+  }
+  return {
+    crop: data.crop,
 
-        das: data.das,
+    das: data.das,
 
-        stage: data.stage,
+    stage: data.stage,
 
-        season: data.season,
+    season: data.season,
 
-        temperature: data.weather.temperature,
+    temperature: data.weather.temperature,
 
-        humidity: data.weather.humidity,
+    humidity: data.weather.humidity,
 
-        rainfall: data.weather.rainfall,
+    rainfall: data.weather.rainfall,
 
-        windDirection: data.weather.windDirection,
+    windDirection: data.weather.windDirection,
 
-        risk: data.risk.risk,
+    risk: data.risk.risk,
 
-        riskScore: data.risk.score,
+    riskScore: data.risk.score,
 
-        reasons: data.risk.reasons,
+    reasons: data.risk.reasons,
 
-        primaryConcern: data.pests.primaryConcern,
+    todayPriority: data.pests.todayPriority,
 
-        secondaryConcern: data.pests.secondaryConcern,
+    recommendedActions: data.pests.recommendedActions,
 
-        majorDisease: data.pests.majorDisease,
+    reportMode: data.pests.reportMode,
 
-        scoutingFocus: data.pests.scoutingFocus,
+    showPestSection: data.pests.showPestSection,
 
-        precaution: data.pests.precaution,
+    showDiseaseSection: data.pests.showDiseaseSection,
 
-        scoutStartSide: data.scout.startSide,
+    showScoutSection: data.pests.showScoutSection,
 
-        scoutCoordinates: data.scout.primaryPoints,
-        todayAction:
-`Inspect ${data.pests.primaryConcern} symptoms starting from the ${data.scout.startSide} side of the field.`
-    };
+    primaryConcern: data.pests.primaryConcern,
+
+    secondaryConcern: data.pests.secondaryConcern,
+
+    majorDisease: data.pests.majorDisease,
+
+    scoutingFocus: data.pests.scoutingFocus,
+
+    precaution: data.pests.precaution,
+
+    scoutStartSide: data.scout.startSide,
+
+    scoutCoordinates: data.scout.primaryPoints,
+    todayAction,
+  };
 }
 
 module.exports = generateReport;
